@@ -2,7 +2,26 @@
 
 The following guidelines detail the common standards for writing CSS at Work & Co. They should be seen as best practices, but may be interpreted according to project specific needs. Older projects may also vary in their CSS practices. 
 
-This guide owes a gratitude of thanks to the following guides, from which it has borrowed unceremoniously: [Medium](https://gist.github.com/fat/b27700946c777adacdf4)
+This guide owes a gratitude of thanks to the following guides, from which it has borrowed unceremoniously: [Medium](https://gist.github.com/fat/b27700946c777adacdf4), [Gravity Dept](http://manuals.gravitydept.com/code/css/style-guide)
+
+## Formatting and Whitespace
+
+- One space after selector
+- Opening curly-brace followed by new line
+- One "property:value" pair per line
+- Single space after colon
+- Semi-colon after all pairs
+- Closing curly-brace on new line
+- Blank line between rules
+
+**Right:**
+```sass
+.banner {
+  left: 0;
+  position: fixed;
+  top: 0;
+}
+```
 
 ## Preprocessor
 
