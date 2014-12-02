@@ -85,14 +85,14 @@ When adding a color variable to _variables.scss:
 - Named colors should be avoided
 
 **Right:**
-```sass
+```css
 $white:             #FFF;
 $red:               #FE392F;
 $black-opacity-30:  rgba(0, 0, 0, 0.3);
 ```
 
 **Wrong:**
-```sass
+```css
 $white:             #fff;
 $orange:            #FF9900;
 $green;             green;
@@ -137,7 +137,7 @@ Often, modules will vary slightly depending upon their context within the site. 
 <nav class="nav nav--home"></nav>
 ```
 
-```sass
+```css
 .nav {
   background: $black;
   color: $white;
@@ -162,7 +162,7 @@ If in doubt, create a new module or submodule. Nesting increases specificity whi
 Where nesting does make sense is for pseudo elements, media query mixins and, occasionally, context specific modification (e.g. html/body classes).
 
 **Right:**
-```sass
+```css
 .list {
   display: flex;
   
@@ -185,7 +185,7 @@ Where nesting does make sense is for pseudo elements, media query mixins and, oc
 ```
 
 **Wrong:**
-```sass
+```css
 .list-btn {
   .list-btn-inner {
     .a {
@@ -220,7 +220,7 @@ CSS rules should be comma seperated but live on new lines:
 CSS blocks should be seperated by a single line. not two. not 0. Ditto with nested rules.
 
 **Right:**
-```sass
+```css
 .content {
   /* properties */
   
@@ -235,7 +235,7 @@ CSS blocks should be seperated by a single line. not two. not 0. Ditto with nest
 ```
 
 **Wrong:**
-```sass
+```css
 .content {
   /* properties */
 }
@@ -274,13 +274,13 @@ Quotes are optional in CSS. Work & Co chooses to use quotes as it is visually cl
 Single quotes are the way forward.
 
 **Right:**
-```sass
+```css
 background-image: url('/img/you.jpg');
 font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial;
 ```
 
 **Wrong:**
-```sass
+```css
 background-image: url("/img/you.jpg");
 font-family: Helvetica Neue Light, Helvetica Neue, Helvetica, Arial;
 ```
@@ -358,6 +358,6 @@ Should not necessarily be avoided completely, but must be used with caution and 
 
 Compass provides [mixins](http://compass-style.org/reference/compass/css3/) for style declartions that require vendor prefixes. It is generally good practice to make use of these wherever possible.
 
-```sass
+```css
 @include border-radius(10px);
 ```
