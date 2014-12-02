@@ -2,7 +2,11 @@
 
 The following guidelines detail the common standards for writing CSS at Work & Co. They should be seen as best practices, but may be interpreted according to project specific needs. Older projects may also vary in their CSS practices. 
 
-This guide owes a gratitude of thanks to the following guides, from which it has borrowed unceremoniously: [Medium](https://gist.github.com/fat/b27700946c777adacdf4), [Google](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml), [Gravity Dept](http://manuals.gravitydept.com/code/css/style-guide)
+This guide owes a gratitude of thanks to the following guides, from which it has borrowed unceremoniously: [Medium](https://gist.github.com/fat/b27700946c777adacdf4), [Google](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml), [Gravity Dept](http://manuals.gravitydept.com/code/css/style-guide), [Lonely Planet](http://ianfeather.co.uk/css-at-lonely-planet/)
+
+TODO:
+http://dev.ghost.org/css-at-ghost/
+http://markdotto.com/2014/07/23/githubs-css/
 
 ## Formatting and Whitespace
 
@@ -361,3 +365,14 @@ Compass provides [mixins](http://compass-style.org/reference/compass/css3/) for 
 ```css
 @include border-radius(10px);
 ```
+
+## Refactoring
+
+Get rid of as much code as possible when refactoring. Don't be precious about keeping things around in case it might be needed. That's why we use version control!
+
+## Misc
+
+* Keeping CSS DRY is important, but not if it sacrifices maintainability.
+* Be very careful when using the SASS @extend tool. [Read this article](http://csswizardry.com/2014/11/when-to-use-extend-when-to-use-a-mixin/)
+* Use [normalize.css](https://github.com/necolas/normalize.css/)
+* [Grunticon](https://github.com/filamentgroup/grunticon) has proved a very useful tool for serving svg icons and logos.
