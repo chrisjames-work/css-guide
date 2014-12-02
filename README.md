@@ -2,7 +2,7 @@
 
 The following guidelines detail the common standards for writing CSS at Work & Co. They should be seen as best practices, but may be interpreted according to project specific needs. Older projects may also vary in their CSS practices. 
 
-This guide owes a gratitude of thanks to the following guides, from which it has borrowed unceremoniously: [Medium](https://gist.github.com/fat/b27700946c777adacdf4), [Gravity Dept](http://manuals.gravitydept.com/code/css/style-guide)
+This guide owes a gratitude of thanks to the following guides, from which it has borrowed unceremoniously: [Medium](https://gist.github.com/fat/b27700946c777adacdf4), [Google](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml), [Gravity Dept](http://manuals.gravitydept.com/code/css/style-guide)
 
 ## Formatting and Whitespace
 
@@ -15,7 +15,7 @@ This guide owes a gratitude of thanks to the following guides, from which it has
 - Blank line between rules
 
 **Right:**
-```sass
+```css
 .banner {
   left: 0;
   position: fixed;
@@ -36,29 +36,40 @@ You should ~~almost~~ never need to use IDs for styling purposes.
 Basic class names are lowercase with words separated by a dash:
 
 **Right:**
-```sass
-.user-profile {
-  â€¦
-}
-
-.post-header {
-  â€¦
-}
+```css
+.user-profile {}
+.post-header {}
 ```
 
 **Wrong:**
-```sass
-.userProfile {
-  â€¦
-}
+```css
+.userProfile {}
+.postheader {}
+.top_navigation {}
+```
 
-.postheader {
-  â€¦
-}
+## Element Qualification
 
-.top_navigation {
-  â€¦
-}
+Append an element suffix to the class name to clarify the markup pattern (not by qualifying the element type). This keeps specificity low, and improves selector performance.
+
+**Right:**
+```css
+.articles-list {}
+```
+
+**Wrong:**
+```css
+ul.articles {}
+```
+
+### Element suffixes
+
+Always use suffixes with these elements:
+
+```css
+.some-form {}
+.some-list {}
+.some-table {}
 ```
 
 ## Color Units
@@ -112,18 +123,10 @@ Use [BEM](https://bem.info/) syntax to define submodules, in a way that relates 
 </div>
 ```
 
-```sass
-.module {
-  â€¦
-}
-
-.module__title {
-  â€¦
-}
-
-.module__desc {
-  â€¦
-}
+```css
+.module {}
+.module__title {}
+.module__desc {}
 ```
 
 ## Context Modifiers
@@ -200,17 +203,17 @@ Where nesting does make sense is for pseudo elements, media query mixins and, oc
 CSS rules should be comma seperated but live on new lines:
 
 **Right:**
-```sass
+```css
 .content,
 .content-edit {
-  â€¦
+  /* properties */
 }
 ```
 
 **Wrong:**
-```sass
+```css
 .content, .content-edit {
-  â€¦
+  /* properties */
 }
 ```
 
@@ -219,25 +222,25 @@ CSS blocks should be seperated by a single line. not two. not 0. Ditto with nest
 **Right:**
 ```sass
 .content {
-  â€¦
+  /* properties */
   
   @include at-medium {
-    â€¦
+    /* properties */
   }
 }
 
 .content-edit {
-  â€¦
+  /* properties */
 }
 ```
 
 **Wrong:**
 ```sass
 .content {
-  â€¦
+  /* properties */
 }
 .content-edit {
-  â€¦
+  /* properties */
 }
 ```
 
@@ -249,7 +252,7 @@ At the minimum, use comments to seperate logical groups of styles within a docum
 
 
 **Right:**
-```sass
+```css
 /* ==========================================================================
    Title of page
    ========================================================================== */
@@ -259,7 +262,7 @@ At the minimum, use comments to seperate logical groups of styles within a docum
 ```
 
 **Wrong:**
-```sass
+```css
 /* Title of section
  **********************/
 ```
@@ -280,6 +283,65 @@ font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial;
 ```sass
 background-image: url("/img/you.jpg");
 font-family: Helvetica Neue Light, Helvetica Neue, Helvetica, Arial;
+```
+
+## Structure
+
+### Parameter Order
+
+CSS parameters should be alphabetized. 
+
+**Right:**
+```css
+.sticky {
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+```
+
+**Wrong:**
+```css
+.sticky {
+  display: block;
+  color: red;
+  text-decoration: none;
+  font-size: 10rem;
+}
+```
+
+When using mixins, consider the CSS output and order accordingly. 
+
+**Right:**
+```css
+.article {
+  @include opentype-regular;
+  @include font-size(1.5);
+  line-height: 20px;
+}
+```
+
+If using vendor-prefixed rules, group the related rules - but preferably use a Compass mixin instead.
+
+**Right:**
+```css
+.article {
+  background: none;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+}
+```
+
+**Better:**
+```css
+.article {
+  background: none;
+  @include box-sizing(border-box);
+  display: block;
+}
 ```
 
 ## SASS/Compass
